@@ -44,19 +44,16 @@ public class ArrayToLinkedList implements MyLinkList{
 		// TODO Auto-generated method stub
 		reverseLinkedList();
 		System.out.println("Reversed Linked List Order");
-		for (int i = 0; i < reverseList.size(); i++) {
+		for (int i = 0; i < reverseList.size(); i++)
 			System.out.printf("%d element=%s\n",i,reverseList.get(i));
-		}
 	}
 
 	@Override
 	public void reverseLinkedList() {
 		// TODO Auto-generated method stub
 		reverseList = new LinkedList<>();
-		for (int i = arrayToList.size() - 1; i >= 0; i--) {
+		for (int i = arrayToList.size() - 1; i >= 0; i--)
 			reverseList.add(arrayToList.get(i));
-			//System.out.printf("I have added the string: %s at the node: %d\n",arrayToList.get(i),i);
-		}
 	}
 
 
