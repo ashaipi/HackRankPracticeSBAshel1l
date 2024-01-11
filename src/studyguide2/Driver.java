@@ -50,20 +50,19 @@ public class Driver{
 
 	  int[] age1 = new int[11];
 
-	  for(int i = 0; i < 1; i++)
-	   {
-	    String[] age = sc.nextLine().split(" ");
-	    if(i == 0){
-	    int j = 0;
-	    for(String s : age)
-	     age1[j++] = Integer.parseInt(s);
-	    }
-	   }
-	   e.calculateAvgAge(age1);
-	   e.promoteEmployee(11);
-	   e.promoteEmployee(3);
-	   e.promoteEmployee(7);
-	   e.promoteEmployee(7);
-	   sc.close();
+	  for(int i = 0; i < 1; i++){
+			String[] age = sc.nextLine().split(" ");
+			if(i == 0){
+				int j = 0;
+				for(String s : age)
+					age1[j++] = Integer.parseInt(s);
+			}
+	  }
+	  e.calculateAvgAge(age1);
+	  e.promoteEmployee(11);
+	  e.promoteEmployee(3);
+	  e.promoteEmployee(7);
+	  e.promoteEmployee(7);
+	  sc.close();
   }
 }	

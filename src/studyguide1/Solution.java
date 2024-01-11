@@ -67,55 +67,50 @@ abcd is an invalid Integer
 
 
 public class Solution{
-	  
-	  public static void main(String[] args){
-	  
-	  Scanner sc = new Scanner(System.in);
-	  Random rand = new Random(0);
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		Random rand = new Random(0);
 
-	  int n = Integer.parseInt(sc.nextLine());
-	  //System.out.print("DBG1="+n);
-	  String[] a = new String[n];
+		int n = Integer.parseInt(sc.nextLine());
+		//System.out.print("DBG1="+n);
+		String[] a = new String[n];
 
-	  for(int i = 0; i < n; i++)
+	  	for(int i = 0; i < n; i++)
 	  	a[i] = sc.nextLine();
 	  
-	  MyLinkList obj = new ArrayToLinkedList();
+	  	MyLinkList obj = new ArrayToLinkedList();
 	  
-	  obj.convert(a);
+	  	obj.convert(a);
 	  
-	  obj.displayList();
+	  	obj.displayList();
 	  
-	  int x = rand.nextInt(n);
-	  System.out.print("I will call replace this many times="+x+"\n");
-	  for(int i = 0; i < x; i++) 
-	  	obj.replace(rand.nextInt(n));
+	  	int x = rand.nextInt(n);
+	  	System.out.print("I will call replace this many times="+x+"\n");
+	  	for(int i = 0; i < x; i++)
+	  		obj.replace(rand.nextInt(n));
 
+	  	LinkedList<String> s = obj.compact();
+	  
+	  	for (int i = 0; i < s.size(); i++){
+		  	if(!isAnInteger(s.get(i))){
+			  	try{
+					  throw new InvalidNumberException(s.get(i)+" is an invalid Integer");
 
-	  LinkedList<String> s = obj.compact();
+			 	 } catch(InvalidNumberException e){
+					  System.out.println(e.getMessage());
+				}
+			}else{
+			 	 System.out.println(s.get(i)+ " is a valid Integer!!");
+		 	 }
+	 	 }
+	}
 	  
-	  for (int i = 0; i < s.size(); i++){
-		  
-	  	if(!isAnInteger(s.get(i))){
-	  	 try{
-	       throw new InvalidNumberException(s.get(i)+" is an invalid Integer");
-	  	 }
-	  	 catch(InvalidNumberException e){System.out.println(e.getMessage());}	
-	  	}else {
-	  		System.out.println(s.get(i)+ " is a valid Integer!!");
-	  	}
-	  	
-	  }
-   }
-	  
-	  public static Boolean isAnInteger(String text) {
-		  try {
-		    Integer iiInteger = Integer.parseInt(text);
+	public static Boolean isAnInteger(String text) {
+		try {
+			Integer iiInteger = Integer.parseInt(text);
 		    return true;
-		  } catch (NumberFormatException e) {
-		    return false;
-		  }
+		} catch (NumberFormatException e) {
+			return false;
 		}
-
-	
+	}
 }
